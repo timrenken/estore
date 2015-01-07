@@ -35,6 +35,8 @@ gem 'paperclip'
 
 gem 'dotenv-rails', groups: :development
 
+gem 'aws-sdk'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
