@@ -1,6 +1,6 @@
 class TransactionsController < ApplicationController
 	def create
-		book = Book.find_by!(slug: paramas[:slug])
+		book = Book.find_by!(slug: params[:slug])
 		token = params[:stripeToken]
 		
 		begin
@@ -8,7 +8,7 @@ class TransactionsController < ApplicationController
 				amount: book.price,
 				currency: "usd",
 				card: token,
-				destription: currrent_user.email)
+				destription: current_user.email)
 			@sale = book.sales.create!(
 				buyer_email: current_user.email)
 			redirect_to pickup_url(guid: @sale.guid)
